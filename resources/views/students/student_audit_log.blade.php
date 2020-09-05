@@ -42,37 +42,20 @@
         </tbody>
     </table>
 
-<!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-
-<script>
-function changes(v1,v2){
-	
-	alert(v1);
-	alert(v2);
-	$("#myModal").modal("show");
-	
-}
-</script>
+@if ($data->lastPage() > 1)
+<ul class="pagination">
+    <li class="{{ ($data->currentPage() == 1) ? ' disabled' : '' }}">
+        <a style="margin-left:0px;" class="appointment-btn scrollto" href="{{ $data->url(1) }}">Previous</a>
+    </li>
+    @for ($i = 1; $i <= $data->lastPage(); $i++)
+        <li class="{{ ($data->currentPage() == $i) ? ' active' : '' }}">
+            <a style="margin-left:3px;" class="appointment-btn scrollto" href="{{ $data->url($i) }}">{{ $i }}</a>
+        </li>
+    @endfor
+    <li class="{{ ($data->currentPage() == $data->lastPage()) ? ' disabled' : '' }}">
+        <a style="margin-left:3px;" class="appointment-btn scrollto" href="{{ $data->url($data->currentPage()+1) }}" >Next</a>
+    </li>
+</ul>
+@endif
 
 @endsection
