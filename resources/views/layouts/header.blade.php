@@ -74,6 +74,7 @@
           <li class="active"><a href="{{asset('home')}}">Home</a></li>
           <li><a href="{{asset('students/list')}}">Students</a></li>
           <li><a href="{{asset('students/audits')}}">Audits Log</a></li>
+	  <li><a href="{{asset('students/mail')}}">Send E-Mail</a></li>
           <!--<li><a href="#departments">Departments</a></li>
           <li><a href="#doctors">Doctors</a></li>-->
           <!-- <li class="drop-down"><a href="">Drop Down</a>
