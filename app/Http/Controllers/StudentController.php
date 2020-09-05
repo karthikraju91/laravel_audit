@@ -186,7 +186,7 @@ class StudentController extends Controller
                 ->leftjoin("students as s","s.id","ad.auditable_id")
                 ->where("ad.user_id",\Auth::user()->id)
                 ->select("ad.*","s.name as student_name")
-                ->get();
+                ->paginate("7");
         return view("students.student_audit_log",["data"=>$data]);
     }
 
